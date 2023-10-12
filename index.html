@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Website SITE is ready.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Ubuntu', sans-serif;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      color: #344A5E;
+    }
+.active_block
+{
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  height: 100%;
+}
+.active_block_left
+{
+  display: grid;
+  height: 100%;
+  align-items: center;
+}
+.active_block_right
+{
+  display: grid;
+  height: 100%;
+  grid-template-rows: auto auto auto;
+  align-items: center;
+}
+.active_block_right_top_bg
+{
+  background: url("https://tickethost.info/imgs/active-img/active-bg-top-right.png") top right;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+.active_block_right_footer_bg_left
+{
+  background: url("https://tickethost.info/imgs/active-img/active-bg-footer-left.png") bottom left;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+.active_block_right_footer_bg_right
+{
+  background: url("https://tickethost.info/imgs/active-img/active-bg-footer-right.png") bottom right;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+.active_block_right_bg
+{
+  background: linear-gradient(to top, #232769, #5D619D);
+  height: 100%;
+}
+
+.active_block_text
+{
+  color: #fff;
+  font-size: 1.1em;
+  padding: 1em 3em;
+  line-height: 2.5;
+}
+
+.cell2
+{
+  display: grid;
+  grid-template-columns: 200px auto;
+  height: 100%;
+}
+.cell2_bg
+{
+width: 0; 
+height: 0;
+border-top: 100vh solid #fff;
+border-right: 200px solid transparent;
+}
+.img_active
+{
+  position: relative;
+  z-index: 10;
+  padding: 1em;
+}
+    .b-text_lang_ru {
+      display: none;
+    }
+    .b-text_lang_ua {
+      display: none;
+    }
+@media (max-width: 1800px){.active_block_right_footer_bg_right{background: none;}}
+@media (max-width: 1600px)
+{
+.active_block{grid-template-columns: 500px auto;}
+.active_block_text{padding: 1em 1em 1em 0em;}
+.img_active{width: 480px;}
+}
+@media (max-width: 1350px)
+{
+  .active_block_right_footer_bg_left{background-position-x: -15%;}
+  .cell2{grid-template-columns: 100px auto;}
+  .cell2_bg{border-right: 100px solid transparent}
+}
+@media (max-width: 1250px)
+{
+.img_active{width: 430px}
+.active_block{grid-template-columns: 400px auto;}
+}
+@media (max-width: 1150px)
+{
+  .cell2{grid-template-columns: 10px auto;}
+  .cell2_bg{border-right: 10px solid transparent}
+  .active_block_text{padding: 1em;}
+  .img_active{width: 400px;}
+  .active_block_right_footer_bg_left{background-position-x: -25%;}
+}
+@media (max-width: 995px)
+{
+.active_block{grid-template-columns: 1fr;}
+.cell2_bg{display: none;}
+.cell2{grid-template-columns: auto;}
+.active_block_right_footer_bg_left{background: none;}
+.active_block_right_top_bg{background: none;}
+}
+@media (max-width: 450px)
+{
+.img_active{width: 100%;}
+.active_block_text{font-size: 0.9em;}
+}
+  </style>
+
+
+</head>
+<body>
+<h1> Я ПІДААРАААССС </h1>
+
+<div class="active_block">
+
+  <div class="active_block_left"><center><img class="img_active" src="https://tickethost.info/imgs/active-img/active-img.png" alt="Start"></center></div>
+
+  <div class="active_block_right_bg">
+  <div class="active_block_right_top_bg">
+  <div class="active_block_right_footer_bg_left">
+  <div class="active_block_right_footer_bg_right">
+
+  <div class="cell2">
+    
+    <div class="cell2_bg"></div>
+
+    <div>
+      
+    <div class="active_block_right">
+      <div></div>
+      <div class="active_block_text">
+
+              <div class="b-text_lang_ru">
+                  <b style="font-size: 1.2em;">Уважаемый клиент! </b>
+                  <br>
+                  Прежде всего выражаем Вам свою благодарность за оказанное нам доверие!
+                  <br>
+                  Вы сделали правильный выбор. 
+                  <br>
+                  Вы всегда можете обратиться в нашу Службу поддержки по любым вопросам в Вашем Личном кабинете.
+                  <br>
+                  Желаем Вам удачи в работе с Вашим проектом и надеемся на долгое и плодотворное сотрудничество!  
+              </div>
+
+              <div class="b-text_lang_ua">
+                  <b style="font-size: 1.2em;">Шановний клієнт!</b>
+                  <br>
+                  Насамперед висловлюємо Вам свою подяку за надану нам довіру!
+                  <br>
+                  Ви зробили правильний вибір.
+                  <br>
+                  Ви завжди можете звернутися до нашої Служби підтримки з будь-яких питань у Вашому Особовому кабінеті.
+                  <br>
+                  Бажаємо Вам удачі в роботі з Вашим проектом та сподіваємося на тривалу та плідну співпрацю!
+              </div>
+              
+              <div class="b-text_lang_en">
+                  <b style="font-size: 1.2em;">Dear Client!</b>
+                  <br>
+                  Thank you for choosing our service!
+                  <br>
+                  Your choice is good.
+                  <br>
+                  You can always contact our Support Service in your Client Area to resolve all issues.
+                  <br>
+                  We wish you successful projects and hope for a long service!
+              </div>
+
+      </div>
+      <div></div>
+    </div>
+
+    </div>
+
+  </div>  
+
+  </div>
+  </div>
+  </div>
+  </div>
+
+</div>
+
+
+
+<script type="text/javascript">
+    var platformLanguage = navigator && (
+      navigator.language ||
+  navigator.browserLanguage ||
+  navigator.systemLanguage ||
+  navigator.userLanguage ||
+  null ),
+      elemsUA, elemsRU, elemsEN;
+    
+    if (platformLanguage.match("ru") && document.getElementsByClassName) {
+      elemsRU = document.getElementsByClassName("b-text_lang_ru");
+      elemsEN = document.getElementsByClassName("b-text_lang_en");
+      var l = elemsEN.length;
+      while(l--) {
+  elemsEN[l].style.display = "none";
+      }
+      l = elemsRU.length;
+      while(l--) {
+  elemsRU[l].style.display = "block";
+      }
+      document.title = "Сайт infocashaff.website создан.";
+    }
+  
+    if (platformLanguage.match("ua") && document.getElementsByClassName) {
+      elemsUA = document.getElementsByClassName("b-text_lang_ua");
+      elemsEN = document.getElementsByClassName("b-text_lang_en");
+      var l = elemsEN.length;
+      while(l--) {
+  elemsEN[l].style.display = "none";
+      }
+      l = elemsUA.length;
+      while(l--) {
+  elemsUA[l].style.display = "block";
+      }
+      document.title = "Сайт infocashaff.website створений.";
+    }
+  </script>
+
+
+</body>
+</html>
+
