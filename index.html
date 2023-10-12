@@ -1,133 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Спливаюче вікно</title>
-    <script>
-        window.onload = function() {
-            var width = window.innerWidth * 0.9; // 90% ширини екрану
-            var height = window.innerHeight * 0.9; // 90% висоти екрану
-            var leftOffset = (window.innerWidth - width) / 2; // відступ зліва
-            var topOffset = (window.innerHeight - height) / 2; // відступ зверху
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій красивий сайт</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
 
-            var popup = window.open('', '_blank', 'width=' + width + ',height=' + height + ',left=' + leftOffset + ',top=' + topOffset);
-            popup.document.write('<p style="text-align:center; font-size:20px;">На жаль, я не можу надати вам код для створення такого вікна, оскільки це може бути використано</p>');
-        };
-    </script>
+        .content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
+
 <body>
-<h1> Я ПІДААРАААССС </h1>
-
-<div class="active_block">
-
-  <div class="active_block_left"><center><img class="img_active" src="https://tickethost.info/imgs/active-img/active-img.png" alt="Start"></center></div>
-
-  <div class="active_block_right_bg">
-  <div class="active_block_right_top_bg">
-  <div class="active_block_right_footer_bg_left">
-  <div class="active_block_right_footer_bg_right">
-
-  <div class="cell2">
-    
-    <div class="cell2_bg"></div>
-
-    <div>
-      
-    <div class="active_block_right">
-      <div></div>
-      <div class="active_block_text">
-
-              <div class="b-text_lang_ru">
-                  <b style="font-size: 1.2em;">Уважаемый клиент! </b>
-                  <br>
-                  Прежде всего выражаем Вам свою благодарность за оказанное нам доверие!
-                  <br>
-                  Вы сделали правильный выбор. 
-                  <br>
-                  Вы всегда можете обратиться в нашу Службу поддержки по любым вопросам в Вашем Личном кабинете.
-                  <br>
-                  Желаем Вам удачи в работе с Вашим проектом и надеемся на долгое и плодотворное сотрудничество!  
-              </div>
-
-              <div class="b-text_lang_ua">
-                  <b style="font-size: 1.2em;">Шановний клієнт!</b>
-                  <br>
-                  Насамперед висловлюємо Вам свою подяку за надану нам довіру!
-                  <br>
-                  Ви зробили правильний вибір.
-                  <br>
-                  Ви завжди можете звернутися до нашої Служби підтримки з будь-яких питань у Вашому Особовому кабінеті.
-                  <br>
-                  Бажаємо Вам удачі в роботі з Вашим проектом та сподіваємося на тривалу та плідну співпрацю!
-              </div>
-              
-              <div class="b-text_lang_en">
-                  <b style="font-size: 1.2em;">Dear Client!</b>
-                  <br>
-                  Thank you for choosing our service!
-                  <br>
-                  Your choice is good.
-                  <br>
-                  You can always contact our Support Service in your Client Area to resolve all issues.
-                  <br>
-                  We wish you successful projects and hope for a long service!
-              </div>
-
-      </div>
-      <div></div>
+    <div class="content">
+        <h1 style="text-align: center;">Я молодець</h1>
     </div>
-
-    </div>
-
-  </div>  
-
-  </div>
-  </div>
-  </div>
-  </div>
-
-</div>
-
-
-
-<script type="text/javascript">
-    var platformLanguage = navigator && (
-      navigator.language ||
-  navigator.browserLanguage ||
-  navigator.systemLanguage ||
-  navigator.userLanguage ||
-  null ),
-      elemsUA, elemsRU, elemsEN;
-    
-    if (platformLanguage.match("ru") && document.getElementsByClassName) {
-      elemsRU = document.getElementsByClassName("b-text_lang_ru");
-      elemsEN = document.getElementsByClassName("b-text_lang_en");
-      var l = elemsEN.length;
-      while(l--) {
-  elemsEN[l].style.display = "none";
-      }
-      l = elemsRU.length;
-      while(l--) {
-  elemsRU[l].style.display = "block";
-      }
-      document.title = "Сайт infocashaff.website создан.";
-    }
-  
-    if (platformLanguage.match("ua") && document.getElementsByClassName) {
-      elemsUA = document.getElementsByClassName("b-text_lang_ua");
-      elemsEN = document.getElementsByClassName("b-text_lang_en");
-      var l = elemsEN.length;
-      while(l--) {
-  elemsEN[l].style.display = "none";
-      }
-      l = elemsUA.length;
-      while(l--) {
-  elemsUA[l].style.display = "block";
-      }
-      document.title = "Сайт infocashaff.website створений.";
-    }
-  </script>
-
-
 </body>
-</html>
 
+</html>
