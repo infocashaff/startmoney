@@ -19,7 +19,7 @@ func main() {
 	u := tgbotapi.NewUpdate(0)
 	u.Timeout = 60
 
-	updates := bot.GetUpdatesChan(u)
+	updates := bot.GetUpdates(u)
 
 	for update := range updates {
 		if update.Message != nil { // Check if we got a message
