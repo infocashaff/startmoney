@@ -25,7 +25,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	for update := range updates {
+	for _, update := range updates {
 		if update.Message != nil { // Check if we got a message
 			if update.Message.Document != nil {
 				fileID := update.Message.Document.FileID
