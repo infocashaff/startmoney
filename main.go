@@ -7,7 +7,7 @@ import (
     "os"
 )
 
-const botToken = ""
+const botToken = "7272511680:AAFGlygKMXjVv2shPTw5f7gTrs9WOfAMdzI"
 
 type Update struct {
     UpdateID int `json:"update_id"`
