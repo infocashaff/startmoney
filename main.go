@@ -5,6 +5,7 @@ import (
     "fmt"
     "net/http"
     "os"
+    "io"
 )
 
 const botToken = "7272511680:AAFGlygKMXjVv2shPTw5f7gTrs9WOfAMdzI"
