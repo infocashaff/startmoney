@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-    filesDir := os.Args[1]
+	filesDir := os.Args[1]
 	// Ім'я файлу PDF, який ми створимо
 	pdfFileName := "output.pdf"
 
