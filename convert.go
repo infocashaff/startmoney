@@ -30,10 +30,12 @@ func main() {
 	for i := 0; i < len(fileNames); i += groupSize {
 		var group []*string
 		for j := 0; j < groupSize; j++ {
+			if i+j < len(fileNames) {
+				group = append(group, &fileNames[i+j])
+			}
+			
 			if fileNames[i+j] == "" {
 				group = append(group, nil)
-			} else if i+j < len(fileNames) {
-				group = append(group, &fileNames[i+j])
 			} else {
 				group = append(group, nil)
 			}
