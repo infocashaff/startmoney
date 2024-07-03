@@ -9,8 +9,7 @@ import (
 )
 
 func main() {
-	// Вкажіть шлях до папки
-	dirPath := "./path/to/directory"
+	dirPath := os.Args[1]
 
 	// Отримайте список файлів у папці
 	files, err := io.ReadDir(dirPath)
