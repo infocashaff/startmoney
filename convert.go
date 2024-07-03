@@ -33,7 +33,7 @@ func main() {
 			if fileNames[i+j] == "" {
 				group = append(group, nil)
 			} else if i+j < len(fileNames) {
-				group = append(group, fileNames[i+j])
+				group = append(group, &fileNames[i+j])
 			} else {
 				group = append(group, nil)
 			}
