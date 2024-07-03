@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 )
 
 func main() {
@@ -47,8 +48,25 @@ func main() {
 	// Виведіть вміст груп
 	for i, group := range groups {
 		fmt.Printf("Group %d:\n", i+1)
-		for _, file := range group {
-			fmt.Println(file)
+		for idx, file := range group {
+			if *file != nil {
+				degree := "90"
+				if idx == 1 || idx == 10 || idx == 3 || idx == 8 || idx == 5 || idx == 6 {
+					degree = "270"
+				}
+				run(filepath.Join(os.Args[1], *file), degree, filepath.Join(os.Args[2], *file))
+			}
 		}
 	}
+}
+
+func run(filePath, degree, outPath string) {
+	cmd := exec.Command("convert", filePath, "-rotate", degree, outPath)
+
+    // Виконайте команду
+    err := cmd.Run()
+    if err != nil {
+        fmt.Printf("Error: %v\n", err)
+        return
+    }
 }
