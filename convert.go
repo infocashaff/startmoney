@@ -18,11 +18,19 @@ func main() {
 		log.Fatal(err)
 	}
 
+	// Перетворіть список на масив рядків
+	var fileNames []string
+	for _, file := range files {
+		if !file.IsDir() {
+			fileNames = append(fileNames, file.Name())
+		}
+	}
+
 	// Розбийте файли на групи по 12
 	const groupSize = 12
 	var groups [][]*string
 
-	for i := 0; i < len(files); i += groupSize {
+	for i := 0; i < len(fileNames); i += groupSize {
 		var group []*string
 		for j := 0; j < groupSize; j++ {
 			if i+j < len(fileNames) {
