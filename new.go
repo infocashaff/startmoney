@@ -32,10 +32,6 @@ func main() {
 	}
 	pageWidth, pageHeigth := pdf.GetPageSize()
 
-	for _, group := range groups {
-		fmt.Println(group)
-	}
-
 	for idx, group := range groups {
 		fmt.Println(idx)
 		cycle(pdf, group[0], group[11], pageWidth, pageHeigth)
@@ -56,7 +52,6 @@ func main() {
 }
 
 func cycle(pdf *gofpdf.Fpdf, elem1, elem2 fs.DirEntry, pageWidth, pageHeigth float64) {
-	fmt.Println("start")
 	pdf.AddPage()
 
 	if elem1 != nil {
@@ -73,7 +68,6 @@ func cycle(pdf *gofpdf.Fpdf, elem1, elem2 fs.DirEntry, pageWidth, pageHeigth flo
 		remainder2 := ((297.0 / 2.0) - imgH2) / 2.0
 		pdf.Image(filepath.Join(os.Args[1], elem2.Name()), 0, remainder2, pageWidth, 0, false, "", 0, "")
 	}
-	fmt.Println("finish")
 }
 
 func imgSize(path string) (int, int) {
