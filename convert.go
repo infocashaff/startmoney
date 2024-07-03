@@ -47,6 +47,7 @@ func main() {
 	for i, group := range groups {
 		fmt.Printf("Group %d:\n", i+1)
 		for j, file := range group {
+			fmt.Println(file)
 		}
 	}
 }
