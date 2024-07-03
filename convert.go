@@ -32,6 +32,7 @@ func main() {
 		for j := 0; j < groupSize; j++ {
 			if i+j < len(fileNames) {
 				group = append(group, &fileNames[i+j])
+				continue
 			}
 			
 			if fileNames[i+j] == "" {
