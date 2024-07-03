@@ -46,11 +46,6 @@ func main() {
 	for i, group := range groups {
 		fmt.Printf("Group %d:\n", i+1)
 		for j, file := range group {
-			if file != nil {
-				fmt.Printf("  File %d: %s\n", j+1, *file)
-			} else {
-				fmt.Printf("  File %d: nil\n", j+1)
-			}
 		}
 	}
 }
