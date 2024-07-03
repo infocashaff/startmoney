@@ -16,7 +16,7 @@ func main() {
 	}
 
 	// Перетворіть список на масив рядків
-	var fileNames []string = []string{""}
+	var fileNames []string = []string{"", ""}
 	for _, file := range files {
 		if !file.IsDir() {
 			fileNames = append(fileNames, file.Name())
