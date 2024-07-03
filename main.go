@@ -6,7 +6,7 @@ import (
 
 func main() {
 	r := gin.Default()
-	r.GET("/", getFile)
+	r.GET("/file.pdf", getFile)
 	r.Run()
 }
 
