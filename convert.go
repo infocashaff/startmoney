@@ -2,17 +2,15 @@ package main
 
 import (
 	"fmt"
-	"io"
 	"log"
 	"os"
-	"path/filepath"
 )
 
 func main() {
 	dirPath := os.Args[1]
 
 	// Отримайте список файлів у папці
-	files, err := io.ReadDir(dirPath)
+	files, err := os.ReadDir(dirPath)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -46,7 +44,7 @@ func main() {
 	// Виведіть вміст груп
 	for i, group := range groups {
 		fmt.Printf("Group %d:\n", i+1)
-		for j, file := range group {
+		for _, file := range group {
 			fmt.Println(file)
 		}
 	}
