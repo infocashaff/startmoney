@@ -22,6 +22,7 @@ func main() {
 			fileNames = append(fileNames, file.Name())
 		}
 	}
+	fmt.Println(len(fileNames))
 
 	// Розбийте файли на групи по 12
 	const groupSize = 12
@@ -31,13 +32,11 @@ func main() {
 		var group []*string
 		for j := 0; j < groupSize; j++ {
 			if i+j < len(fileNames) {
-				group = append(group, &fileNames[i+j])
-			} else {
-				continue 
-			}
-			
-			if fileNames[i+j] == "" {
-				group = append(group, nil)
+				if fileNames[i+j] == "" {
+					group = append(group, nil)
+				} else {
+					group = append(group, &fileNames[i+j])
+				}
 			} else {
 				group = append(group, nil)
 			}
