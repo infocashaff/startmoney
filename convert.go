@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"os/exec"
 )
 
 func main() {
@@ -49,7 +50,7 @@ func main() {
 	for i, group := range groups {
 		fmt.Printf("Group %d:\n", i+1)
 		for idx, file := range group {
-			if *file != nil {
+			if file != nil {
 				degree := "90"
 				if idx == 1 || idx == 10 || idx == 3 || idx == 8 || idx == 5 || idx == 6 {
 					degree = "270"
