@@ -14,6 +14,12 @@ import (
 
 func main() {
 	filesDir := os.Args[1]
+
+	num, err := strconv.Atoi(os.Args[2])
+	if err != nil {
+		fmt.Println("Помилка перетворення:", err)
+	}
+	
 	// Ім'я файлу PDF, який ми створимо
 	pdfFileName := "output.pdf"
 
@@ -58,10 +64,10 @@ func cycle(pdf *gofpdf.Fpdf, elem1, elem2 fs.DirEntry, pageWidth, pageHeigth flo
 		width, height := imgSize(filepath.Join(os.Args[1], elem1.Name()))
 
 		imgH1 := (float64(height) * pageWidth) / float64(width)
-		pdf.Image(filepath.Join(os.Args[1], elem1.Name()), 0, pageHeigth-imgH1-15, pageWidth, 0, false, "", 0, "")
+		pdf.Image(filepath.Join(os.Args[1], elem1.Name()), 0, pageHeigth-imgH1-num, pageWidth, 0, false, "", 0, "")
 	}
 	if elem2 != nil {
-		pdf.Image(filepath.Join(os.Args[1], elem2.Name()), 0, 15, pageWidth, 0, false, "", 0, "")
+		pdf.Image(filepath.Join(os.Args[1], elem2.Name()), 0, num, pageWidth, 0, false, "", 0, "")
 	}
 }
 
