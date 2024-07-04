@@ -8,14 +8,18 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"strconv"
 
 	"github.com/jung-kurt/gofpdf"
 )
 
+var num int
+
 func main() {
 	filesDir := os.Args[1]
 
-	num, err := strconv.Atoi(os.Args[2])
+	var err error
+	num, err = strconv.Atoi(os.Args[2])
 	if err != nil {
 		fmt.Println("Помилка перетворення:", err)
 	}
