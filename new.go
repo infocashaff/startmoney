@@ -58,15 +58,10 @@ func cycle(pdf *gofpdf.Fpdf, elem1, elem2 fs.DirEntry, pageWidth, pageHeigth flo
 		width, height := imgSize(filepath.Join(os.Args[1], elem1.Name()))
 
 		imgH1 := (float64(height) * pageWidth) / float64(width)
-		remainder0 := ((297.0 / 2.0) - imgH1) / 2.0
-		pdf.Image(filepath.Join(os.Args[1], elem1.Name()), 0, pageHeigth-imgH1-remainder0, pageWidth, 0, false, "", 0, "")
+		pdf.Image(filepath.Join(os.Args[1], elem1.Name()), 0, pageHeigth-imgH1-15, pageWidth, 0, false, "", 0, "")
 	}
 	if elem2 != nil {
-		width, height := imgSize(filepath.Join(os.Args[1], elem2.Name()))
-
-		imgH2 := (float64(height) * pageWidth) / float64(width)
-		remainder2 := ((297.0 / 2.0) - imgH2) / 2.0
-		pdf.Image(filepath.Join(os.Args[1], elem2.Name()), 0, remainder2, pageWidth, 0, false, "", 0, "")
+		pdf.Image(filepath.Join(os.Args[1], elem2.Name()), 0, 15, pageWidth, 0, false, "", 0, "")
 	}
 }
 
