@@ -64,14 +64,15 @@ func main() {
 func cycle(pdf *gofpdf.Fpdf, elem1, elem2 fs.DirEntry, pageWidth, pageHeigth float64) {
 	pdf.AddPage()
 
+	n := float64(num)
 	if elem1 != nil {
 		width, height := imgSize(filepath.Join(os.Args[1], elem1.Name()))
 
 		imgH1 := (float64(height) * pageWidth) / float64(width)
-		pdf.Image(filepath.Join(os.Args[1], elem1.Name()), 0, pageHeigth-imgH1-num, pageWidth, 0, false, "", 0, "")
+		pdf.Image(filepath.Join(os.Args[1], elem1.Name()), 0, pageHeigth-imgH1-n, pageWidth, 0, false, "", 0, "")
 	}
 	if elem2 != nil {
-		pdf.Image(filepath.Join(os.Args[1], elem2.Name()), 0, num, pageWidth, 0, false, "", 0, "")
+		pdf.Image(filepath.Join(os.Args[1], elem2.Name()), 0, n, pageWidth, 0, false, "", 0, "")
 	}
 }
 
