@@ -69,7 +69,6 @@ func saveToken(path string, token *oauth2.Token) {
 }
 
 func main() {
-	ctx := context.Background()
 	b, err := ioutil.ReadFile("credentials.json")
 	if err != nil {
 		log.Fatalf("Не удалось прочитать файл учетных данных: %v", err)
@@ -93,7 +92,7 @@ func main() {
 	}
 
 	// ID вашего чата в Telegram
-	chatID := int64(YOUR_CHAT_ID)
+	chatID := int64(73737)
 
 	// Бесконечный цикл для проверки новых писем
 	for {
