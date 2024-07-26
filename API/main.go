@@ -68,6 +68,31 @@ func saveToken(path string, token *oauth2.Token) {
 	json.NewEncoder(f).Encode(token)
 }
 
+// Функция для сохранения списка пользователей
+func saveUsers(users map[int64]bool, path string) {
+	data, err := json.Marshal(users)
+	if err != nil {
+		log.Fatalf("Не удалось сохранить список пользователей: %v", err)
+	}
+	err = ioutil.WriteFile(path, data, 0644)
+	if err != nil {
+		log.Fatalf("Не удалось записать список пользователей в файл: %v", err)
+	}
+}
+
+// Функция для загрузки списка пользователей
+func loadUsers(path string) map[int64]bool {
+	users := make(map[int64]bool)
+	data, err := ioutil.ReadFile(path)
+	if err == nil {
+		err = json.Unmarshal(data, &users)
+		if err != nil {
+			log.Fatalf("Не удалось загрузить список пользователей: %v", err)
+		}
+	}
+	return users
+}
+
 func main() {
 	b, err := ioutil.ReadFile("key.json")
 	if err != nil {
@@ -85,23 +110,48 @@ func main() {
 		log.Fatalf("Не удалось создать службу Gmail: %v", err)
 	}
 
-	// Идентификатор вашего Telegram бота
-	bot, err := tgbotapi.NewBotAPI("YOUR_TELEGRAM_BOT_TOKEN")
+	// Получить токен бота из переменной среды
+	botToken := os.Getenv("TELEGRAM_BOT_TOKEN")
+	if botToken == "" {
+		log.Fatalf("Не удалось получить токен бота из переменной среды")
+	}
+
+	bot, err := tgbotapi.NewBotAPI(botToken)
 	if err != nil {
 		log.Fatalf("Не удалось создать Telegram бот: %v", err)
 	}
 
-	// ID вашего чата в Telegram
-	chatID := int64(73737)
+	// Загружаем список пользователей
+	usersFile := "users.json"
+	users := loadUsers(usersFile)
+
+	// Создаем новый апдейт-конфиг
+	u := tgbotapi.NewUpdate(0)
+	u.Timeout = 60
+
+	updates, err := bot.GetUpdatesChan(u)
+
+	go func() {
+		for update := range updates {
+			if update.Message != nil {
+				chatID := update.Message.Chat.ID
+				if _, exists := users[chatID]; !exists {
+					users[chatID] = true
+					saveUsers(users, usersFile)
+				}
+			}
+			time.Sleep(10 * time.Second)
+		}
+	}()
 
 	// Бесконечный цикл для проверки новых писем
 	for {
-		checkForNewMessages(srv, bot, chatID)
+		checkForNewMessages(srv, bot, users)
 		time.Sleep(10 * time.Second) // Задержка перед следующей проверкой
 	}
 }
 
-func checkForNewMessages(srv *gmail.Service, bot *tgbotapi.BotAPI, chatID int64) {
+func checkForNewMessages(srv *gmail.Service, bot *tgbotapi.BotAPI, users map[int64]bool) {
 	user := "me"
 	r, err := srv.Users.Messages.List(user).LabelIds("INBOX").Q("is:unread").Do()
 	if err != nil {
@@ -117,7 +167,9 @@ func checkForNewMessages(srv *gmail.Service, bot *tgbotapi.BotAPI, chatID int64)
 				continue
 			}
 
-			sendTelegramMessage(bot, chatID, m.Snippet)
+			for chatID := range users {
+				sendTelegramMessage(bot, chatID, m.Snippet)
+			}
 
 			// Пометить сообщение как прочитанное
 			mod := &gmail.ModifyMessageRequest{RemoveLabelIds: []string{"UNREAD"}}
