@@ -1,2 +1,0 @@
-qpdf input.pdf --pages . 1-643 -- output.pdf
-  
